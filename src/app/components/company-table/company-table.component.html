@@ -1,0 +1,114 @@
+<div class="table-container">
+
+  <!-- Toolbar: title + search -->
+  <div class="table-toolbar">
+    <div class="toolbar-left">
+      <h2 class="table-title">Portfolio Companies</h2>
+      <span class="record-count">{{ totalItems }} companies</span>
+    </div>
+
+    <!-- TODO: Wire up the search input with an event binding -->
+    <!-- Hint: (input)="onSearch($event.target.value)" or use a Subject with debounceTime -->
+    <mat-form-field class="search-field" appearance="outline" subscriptSizing="dynamic">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search companies..." />
+    </mat-form-field>
+  </div>
+
+  <!-- TODO: Add a loading indicator -->
+  <!--
+  <div class="loading-overlay" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  -->
+
+  <!-- Data Table -->
+  <div class="table-wrapper">
+    <table mat-table class="data-table">
+      <!-- TODO: Bind the dataSource: [dataSource]="companies" on the <table> above -->
+
+      <!-- Company Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Company</th>
+        <td mat-cell *matCellDef="let company" class="company-name">
+          <!-- TODO: {{ company.name }} -->
+        </td>
+      </ng-container>
+
+      <!-- Sector Column -->
+      <ng-container matColumnDef="sector">
+        <th mat-header-cell *matHeaderCellDef>Sector</th>
+        <td mat-cell *matCellDef="let company">
+          <!-- TODO: {{ company.sector }} -->
+        </td>
+      </ng-container>
+
+      <!-- Fund Column -->
+      <ng-container matColumnDef="fundName">
+        <th mat-header-cell *matHeaderCellDef>Fund</th>
+        <td mat-cell *matCellDef="let company">
+          <!-- TODO: {{ company.fundName }} -->
+        </td>
+      </ng-container>
+
+      <!-- Valuation Column -->
+      <ng-container matColumnDef="valuation">
+        <th mat-header-cell *matHeaderCellDef class="text-right">Valuation</th>
+        <td mat-cell *matCellDef="let company" class="text-right mono">
+          <!-- TODO: {{ formatValuation(company.valuation) }} -->
+        </td>
+      </ng-container>
+
+      <!-- IRR Column -->
+      <ng-container matColumnDef="irr">
+        <th mat-header-cell *matHeaderCellDef class="text-right">IRR</th>
+        <td mat-cell *matCellDef="let company" class="text-right mono">
+          <!-- TODO: {{ formatIRR(company.irr) }} -->
+        </td>
+      </ng-container>
+
+      <!-- Multiple Column -->
+      <ng-container matColumnDef="multiple">
+        <th mat-header-cell *matHeaderCellDef class="text-right">Multiple</th>
+        <td mat-cell *matCellDef="let company" class="text-right mono">
+          <!-- TODO: {{ formatMultiple(company.multiple) }} -->
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let company">
+          <!-- TODO: Uncomment and bind -->
+          <!--
+          <span class="status-badge" [ngClass]="getStatusClass(company.status)">
+            {{ company.status }}
+          </span>
+          -->
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- No data row -->
+      <tr class="mat-row no-data-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          <div class="empty-state">
+            <mat-icon class="empty-icon">search_off</mat-icon>
+            <p>No companies found. Try a different search term.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- TODO: Wire up the paginator -->
+  <!-- Bind [length]="totalItems" and (page)="onPageChange($event)" -->
+  <mat-paginator
+    [pageSizeOptions]="[10, 20, 50]"
+    [pageSize]="20"
+    showFirstLastButtons>
+  </mat-paginator>
+
+</div>

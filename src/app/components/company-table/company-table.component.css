@@ -1,0 +1,210 @@
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid #e8eaef;
+}
+
+/* ── Toolbar ── */
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  gap: 16px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.table-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.2px;
+}
+
+.record-count {
+  font-size: 13px;
+  color: #9ca3b0;
+  font-weight: 500;
+}
+
+/* ── Search field ── */
+.search-field {
+  width: 280px;
+}
+
+.search-field .mat-mdc-form-field-icon-prefix {
+  color: #9ca3b0;
+  padding-right: 4px;
+}
+
+::ng-deep .search-field .mdc-notched-outline__leading,
+::ng-deep .search-field .mdc-notched-outline__notch,
+::ng-deep .search-field .mdc-notched-outline__trailing {
+  border-color: #dde0e7 !important;
+}
+
+::ng-deep .search-field .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+::ng-deep .search-field .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+::ng-deep .search-field .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #6c63ff !important;
+}
+
+::ng-deep .search-field .mat-mdc-form-field-infix {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  min-height: unset !important;
+}
+
+::ng-deep .search-field input.mat-mdc-input-element {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+/* ── Mat Table overrides ── */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+}
+
+::ng-deep .data-table .mat-mdc-header-row {
+  background: #f6f7fa;
+  height: 44px;
+}
+
+::ng-deep .data-table .mat-mdc-header-cell {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #6b7280;
+  border-bottom: 1px solid #e8eaef;
+  padding: 0 16px;
+}
+
+::ng-deep .data-table .mat-mdc-row {
+  height: 52px;
+  transition: background-color 0.15s ease;
+}
+
+::ng-deep .data-table .mat-mdc-row:hover {
+  background-color: #f8f9fb;
+}
+
+::ng-deep .data-table .mat-mdc-cell {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f1f3f7;
+  padding: 0 16px;
+}
+
+.company-name {
+  font-weight: 600;
+  color: #1a1a2e !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.2px;
+}
+
+/* ── Status badges ── */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.status-badge.active {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-badge.exited {
+  background: #f0f1f5;
+  color: #6b7280;
+}
+
+.status-badge.written-off {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* ── Paginator ── */
+::ng-deep .mat-mdc-paginator {
+  border-top: 1px solid #e8eaef;
+  background: #fafbfc;
+  font-family: 'Inter', sans-serif;
+}
+
+::ng-deep .mat-mdc-paginator-container {
+  padding: 4px 16px;
+  min-height: 52px;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-select-value-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-paginator-range-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ── Loading overlay ── */
+.loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 0;
+}
+
+::ng-deep .loading-overlay .mat-mdc-progress-spinner circle {
+  stroke: #6c63ff;
+}
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 56px 24px;
+  color: #9ca3b0;
+}
+
+.empty-state .empty-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #c9cdda;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #9ca3b0;
+}
+
+.no-data-row .mat-cell {
+  border-bottom: none;
+}
